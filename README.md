@@ -1,38 +1,69 @@
-# create-svelte
+# Калькулятор валют
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+Добро пожаловать в проект Калькулятор валют! Это простое веб-приложение для конвертации между различными валютами с использованием актуальных обменных курсов.
 
-## Creating a project
+## Живой демо
 
-If you're seeing this, you've probably already done this step. Congrats!
+Вы можете посмотреть рабочую версию Калькулятора валют по ссылке [Демо Калькулятор валют](https://currencycalc-alex13slem.netlify.app).
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+## Функции
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+- Конвертация между различными валютами.
+- Актуальные обменные курсы, загружаемые через API.
+- Удобный интерфейс с выбором валют и полями ввода.
+- Обмен валют с помощью одной кнопки.
 
-## Developing
+## Технологии
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+- SvelteKit: Фреймворк для создания приложения.
+- Svelte: Фреймворк для построения пользовательского интерфейса.
+- Axios: Для выполнения HTTP-запросов и получения курсов валют.
+- TypeScript: Для статической типизации.
+- Tailwind CSS: Для стилизации.
 
-```bash
-npm run dev
+## Установка
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+Чтобы запустить проект локально, выполните следующие шаги:
 
-## Building
+1. Клонируйте репозиторий
 
-To create a production version of your app:
+   ```bash
+    git clone https://github.com/ваше-имя-пользователя/currency-calculator.git
+   ```
 
-```bash
-npm run build
-```
+2. Перейдите в директорию проекта
 
-You can preview the production build with `npm run preview`.
+   ```bash
+   cd currency-calculator
+   ```
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+3. Установите зависимости
+
+   Убедитесь, что у вас установлен Node.js. Затем выполните:
+
+   ```bash
+   npm install
+   ```
+
+4. Запустите сервер разработки
+
+   ```bash
+    npm run dev
+   ```
+
+Откройте браузер и перейдите по адресу <http://localhost:3000>, чтобы увидеть приложение в действии.
+
+## Использование
+
+- Введите сумму в поле ввода основной валюты.
+- Выберите основную и целевую валюту с помощью выпадающих списков.
+- Соответствующее значение в целевой валюте будет рассчитано и отображено.
+- Нажмите кнопку обмена, чтобы поменять основную и целевую валюты местами.
+
+## API
+
+Приложение загружает обменные курсы валют с помощью API. Убедитесь, что у вас есть доступ к API или измените конечные точки API в коде соответственно.
+
+## Содействие
+
+Не стесняйтесь открывать проблемы или создавать запросы на внесение изменений, если у вас есть предложения по улучшению приложения.
