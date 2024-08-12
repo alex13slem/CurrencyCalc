@@ -14,6 +14,7 @@
 	export let data: PageData;
 
 	const currencies = Object.values(data.currencies);
+	const status = data.status;
 	let currencyLatest = data.defaultCurrencyLatest;
 
 	let baseCurrency: string = data.baseCurrency;
@@ -93,8 +94,9 @@
 	}
 </script>
 
-<main class="p-4">
-	<div class="flex gap-4">
+<main class="p-4 flex flex-col items-center w-fit mx-auto">
+	<h1 class="text-3xl font-bold mb-4">Конвертер валют</h1>
+	<div class="flex gap-4 mb-4">
 		<div class="border border-input rounded-lg p-1 flex gap-2">
 			<Input
 				value={baseCurrencyValue}
@@ -103,6 +105,7 @@
 				type="number"
 				step="1"
 				min="0"
+				class="w-[112px] flex-shrink-0"
 			/>
 			<Select.Root
 				selected={{ value: baseCurrency, label: baseCurrency }}
@@ -131,6 +134,7 @@
 				type="number"
 				step="1"
 				min="0"
+				class="w-[112px] flex-shrink-0"
 			/>
 			<Select.Root
 				selected={{ value: targetCurrency, label: targetCurrency }}
@@ -148,6 +152,21 @@
 				</Select.Content>
 			</Select.Root>
 		</div>
+	</div>
+	<div class="border rounded-sm p-4 w-full">
+		<h2 class="font-bold mb-4">Статистика за текущий месяц</h2>
+		<p class="mb-2 flex items-baseline">
+			Всего запросов: <span class="inline-block border-b border-dotted flex-1"></span>
+			<span>{status.quotas.month.total}</span>
+		</p>
+		<p class="mb-2 flex items-baseline">
+			Запрошено: <span class="inline-block border-b border-dotted flex-1"></span>
+			<span>{status.quotas.month.used}</span>
+		</p>
+		<p class="mb-2 flex items-baseline">
+			Осталось запросов: <span class="inline-block border-b border-dotted flex-1"></span>
+			<span>{status.quotas.month.remaining}</span>
+		</p>
 	</div>
 </main>
 

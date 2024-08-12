@@ -3,6 +3,7 @@ import axios from 'axios';
 import 'dotenv/config';
 import type { CurrenciesData } from '../lib/types/CurrenciesData';
 import type { CurrencyLatest } from '../lib/types/CurrencyLatest';
+import type { FCAStatus } from '../lib/types/FCAStatus';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ url }) => {
@@ -19,10 +20,16 @@ export const load: PageServerLoad = async ({ url }) => {
 				base_currency: baseCurrency
 			}
 		});
+		const status = await axios.get<FCAStatus>(process.env.FCA_URL + '/status', {
+			params: {
+				apikey: process.env.FCA_API_KEY
+			}
+		});
 		return {
 			currencies: currencies.data.data,
 			defaultCurrencyLatest: defaultCurrencyLatest.data.data,
-			baseCurrency
+			baseCurrency,
+			status: status.data
 		};
 	} catch (err) {
 		return error(500, JSON.stringify(err));
